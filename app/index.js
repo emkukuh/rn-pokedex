@@ -1,8 +1,26 @@
+import { useRouter } from "expo-router";
 import { View } from "react-native";
-import Screen from "../layout/screen";
 import Card from "~/components/card";
+import Screen from "../layout/screen";
+
+const datas = [
+  "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+  "https://img.pokemondb.net/artwork/ivysaur.jpg",
+  "https://img.pokemondb.net/artwork/venusaur.jpg",
+  "https://img.pokemondb.net/artwork/charmander.jpg",
+  "https://img.pokemondb.net/artwork/charmeleon.jpg",
+  "https://img.pokemondb.net/artwork/charizard.jpg",
+  "https://img.pokemondb.net/artwork/squirtle.jpg",
+  "https://img.pokemondb.net/artwork/wartortle.jpg",
+];
 
 const Home = () => {
+  const router = useRouter();
+
+  const navigateToDetail = () => {
+    router.push("./pokemon-detail");
+  };
+
   return (
     <Screen isWithScroll={true} headerTitle="Pokedex XXX">
       <View
@@ -14,13 +32,9 @@ const Home = () => {
           paddingBottom: 16,
         }}
       >
-        <Card imageUrl="imageURl here" />
-        <Card imageUrl="imageURl here" />
-        <Card imageUrl="imageURl here" />
-        <Card imageUrl="imageURl here" />
-        <Card imageUrl="imageURl here" />
-        <Card imageUrl="imageURl here" />
-        <Card imageUrl="imageURl here" />
+        {datas.map((data) => (
+          <Card key={data} imageUrl={data} onPress={navigateToDetail} />
+        ))}
       </View>
     </Screen>
   );
