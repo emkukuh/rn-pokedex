@@ -1,10 +1,9 @@
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import React from "react";
-import { Image, SafeAreaView, ScrollView, View } from "react-native";
-
-import Assets from "../../assets";
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
 
 interface Props {
+  isHideBackButton?: boolean;
   headerTitle?: any;
   isWithScroll?: boolean;
   children: any;

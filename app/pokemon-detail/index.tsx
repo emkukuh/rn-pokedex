@@ -1,18 +1,38 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
-import { useRouter } from "expo-router";
+import { useRouter, useSearchParams } from "expo-router";
 import Screen from "../../layout/screen";
+import Specific from "../../components/specific";
+import Card from "../../components/card";
+
+import styles from "./index.style";
 
 const PokemonDetail = () => {
   const router = useRouter();
+  const param = useSearchParams();
   return (
-    <Screen isWithScroll={true}>
+    <Screen
+      headerTitle={param.name}
+      isWithScroll={true}
+      isHideBackButton={true}
+    >
       <View>
-        <Text>PokemonDetail</Text>
-        <Text>PokemonDetail</Text>
-        <Text>PokemonDetail</Text>
-        <Text>PokemonDetail</Text>
-        <Text>PokemonDetail</Text>
+        <Specific>
+          <Text style={styles.textSpecificContent}>6.04kg - 7.76kg</Text>
+        </Specific>
+        <Specific>
+          <ScrollView
+            horizontal
+            style={styles.evolutionSpecificContentContainer}
+          >
+            <View>
+              <Card
+                width={160}
+                imageUrl="https://img.pokemondb.net/artwork/bulbasaur.jpg"
+              />
+            </View>
+          </ScrollView>
+        </Specific>
       </View>
     </Screen>
   );

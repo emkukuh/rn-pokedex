@@ -18,8 +18,9 @@ const datas = [
 const Home = () => {
   const router = useRouter();
 
-  const navigateToDetail = () => {
-    router.push("./pokemon-detail");
+  const navigateToDetail = (url) => {
+    console.log("called");
+    router.push(`./pokemon-detail?name=${url.data}`);
   };
 
   const pokedexTitle = () => (
@@ -40,8 +41,12 @@ const Home = () => {
           paddingBottom: 16,
         }}
       >
-        {datas.map((data) => (
-          <Card key={data} imageUrl={data} onPress={navigateToDetail} />
+        {datas.map((data, index) => (
+          <Card
+            key={data}
+            imageUrl={data}
+            onPress={() => router.push(`/pokemon-detail?name=${index}`)}
+          />
         ))}
       </View>
     </Screen>

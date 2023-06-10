@@ -11,6 +11,7 @@ import { transform } from "typescript";
 
 interface Props {
   imageUrl: string;
+  width?: number;
   onPress?: () => void;
 }
 
@@ -37,7 +38,10 @@ const Card: React.FC<Props> = (props) => {
       onPress={props.onPress}
     >
       <Animated.View
-        style={[styles.container, { transform: [{ scale: scaleValue }] }]}
+        style={[
+          styles.container(props.width),
+          { transform: [{ scale: scaleValue }] },
+        ]}
       >
         <View style={styles.imageContainer}>
           <Image
