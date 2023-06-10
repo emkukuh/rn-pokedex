@@ -5,9 +5,10 @@ import { Image, SafeAreaView, ScrollView, View } from "react-native";
 import Assets from "../../assets";
 
 interface Props {
-  headerTitle: string;
-  isWithScrool: boolean;
+  headerTitle?: any;
+  isWithScroll?: boolean;
   children: any;
+  backButton?: any;
 }
 
 const Screen: React.FC<Props> = (props) => {
@@ -16,31 +17,17 @@ const Screen: React.FC<Props> = (props) => {
       <Stack.Screen
         options={{
           headerTitle: props.headerTitle,
-          headerLeft: () => (
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Image
-                source={Assets.Icons.ic_pokeball}
-                style={{ height: "60%", width: "60%" }}
-                resizeMode="contain"
-              />
-            </View>
-          ),
         }}
       />
-      <View>
-        {props.isWithScrool ? (
+      <>
+        {props.isWithScroll ? (
           <ScrollView style={{ padding: 12 }}>{props.children}</ScrollView>
         ) : (
-          <View style={{ padding: 12 }}>{props.children}</View>
+          <View style={{ padding: 12, backgroundColor: "blue" }}>
+            {props.children}
+          </View>
         )}
-      </View>
+      </>
     </SafeAreaView>
   );
 };

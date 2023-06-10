@@ -1,7 +1,8 @@
 import { useRouter } from "expo-router";
-import { View } from "react-native";
+import { Image, View } from "react-native";
 import Card from "~/components/card";
 import Screen from "../layout/screen";
+import Assets from "../assets";
 
 const datas = [
   "https://img.pokemondb.net/artwork/bulbasaur.jpg",
@@ -21,8 +22,15 @@ const Home = () => {
     router.push("./pokemon-detail");
   };
 
+  const pokedexTitle = () => (
+    <Image
+      source={Assets.Icons.ic_pokeball}
+      style={{ width: 30, height: 30 }}
+    />
+  );
+
   return (
-    <Screen isWithScroll={true} headerTitle="Pokedex XXX">
+    <Screen isWithScroll={true} headerTitle={pokedexTitle}>
       <View
         style={{
           flexDirection: "row",

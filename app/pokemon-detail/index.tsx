@@ -1,13 +1,20 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
+import Screen from "../../layout/screen";
 
 const PokemonDetail = () => {
   const router = useRouter();
   return (
-    <View>
-      <Text>PokemonDetail</Text>
-    </View>
+    <Screen isWithScroll={true}>
+      <View>
+        <Text>PokemonDetail</Text>
+        <Text>PokemonDetail</Text>
+        <Text>PokemonDetail</Text>
+        <Text>PokemonDetail</Text>
+        <Text>PokemonDetail</Text>
+      </View>
+    </Screen>
   );
 };
 

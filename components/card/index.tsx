@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import styles from "./index.style";
 import { transform } from "typescript";
 
-export interface Props {
+interface Props {
   imageUrl: string;
   onPress?: () => void;
 }
