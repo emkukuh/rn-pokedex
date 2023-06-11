@@ -10,6 +10,7 @@ import styles from "./index.style";
 import { transform } from "typescript";
 
 interface Props {
+  name: string;
   imageUrl: string;
   width?: number;
   onPress?: () => void;
@@ -51,7 +52,7 @@ const Card: React.FC<Props> = (props) => {
           />
         </View>
         <View style={styles.nameContainer}>
-          <Text style={styles.name}>Name</Text>
+          <Text style={styles.name}>{props.name}</Text>
         </View>
       </Animated.View>
     </TouchableWithoutFeedback>

@@ -12,7 +12,7 @@ const Specific: React.FC<Props> = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Specific</Text>
+        <Text style={styles.title}>{props.title}</Text>
       </View>
       <View style={styles.contentContainer}>{props.children}</View>
     </View>

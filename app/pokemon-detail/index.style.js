@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   evolutionSpecificContentContainer: {
-    flexDirection: "row",
     flexWrap: "wrap",
     paddingHorizontal: 16,
   },
