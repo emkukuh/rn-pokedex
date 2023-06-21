@@ -46,7 +46,11 @@ const Home = () => {
               key={pokemon.id}
               name={pokemon.name}
               imageUrl={pokemon.image}
-              onPress={() => router.push(`/pokemon-detail?id=${pokemon.id}`)}
+              onPress={() =>
+                router.push(
+                  `/pokemon-detail?id=${pokemon.id}&name=${pokemon.name}`
+                )
+              }
             />
           ))
         )}

@@ -12,7 +12,7 @@ const client = new ApolloClient({
 const Layout = () => {
   return (
     <ApolloProvider client={client}>
-      <Stack />
+      <Stack screenOptions={{ headerTitle: "" }} />
     </ApolloProvider>
   );
 };
