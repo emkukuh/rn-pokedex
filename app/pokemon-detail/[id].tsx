@@ -5,12 +5,12 @@ import Card from "../../components/card";
 import Specific from "../../components/specific";
 import Screen from "../../layout/screen";
 
-import styles from "./index.style";
+import styles from "./[id].style";
 import { gql, useQuery } from "@apollo/client";
 
 const PokemonDetail = () => {
   const router = useRouter();
-  const { id, name } = useSearchParams();
+  const { id } = useSearchParams();
   const QUERY = gql`
     query Pokemon($id: String!) {
       pokemon(id: $id) {
@@ -31,17 +31,17 @@ const PokemonDetail = () => {
     }
   `;
   const { loading, error, data } = useQuery(QUERY, {
-    variables: { id: id.toString() },
+    variables: { id: id },
   });
+  console.log(id);
 
-  if (error) {
-    return <Text>{`${error}`}</Text>;
-  }
   return (
-    <Screen headerTitle={name} isWithScroll={true} isHideBackButton={true}>
+    <Screen headerTitle={id} isWithScroll={true} isHideBackButton={true}>
       <View style={styles.container}>
         {loading ? (
           <Text>Loading nich...</Text>
+        ) : error ? (
+          <Text>{`${error}`}</Text>
         ) : (
           <>
             <View
@@ -82,9 +82,9 @@ const PokemonDetail = () => {
                           width={160}
                           name={evo.name}
                           imageUrl={evo.image}
-                          onPress={() =>
-                            router.push(`./pokemon-detail?id=${evo.id}`)
-                          }
+                          onPress={() => {
+                            router.replace(`/pokemon-detail/${evo.id}`);
+                          }}
                         />
                       ))}
                     </View>
